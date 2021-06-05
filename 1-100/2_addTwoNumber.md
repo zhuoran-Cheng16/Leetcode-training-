@@ -78,9 +78,8 @@ class Solution:
 ================================================================
 ## 扩展：
 ### [ListNode](https://stackoverflow.com/questions/56515975/python-logic-of-listnode-in-leetcode)
-
+![linklist]("https://github.com/zhuoran-Cheng16/Leetcode-training-/blob/master/img/linklist.png")
 + 链表是通过一个个节点组成的，每个节点都包含了称为cargo的基本单元，它也是一种递归的数据结构。它能保持数据之间的逻辑顺序，但存储空间不必按照顺序存储。<br>
-<img src="img/linklist.png">
 
     - 链表的基本元素有：
         - **node**：每个节点有两个部分，左边部分称为值域，用来存放用户数据；右边部分称为指针域，用来存放指向下一个元素的指针。
