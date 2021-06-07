@@ -15,7 +15,9 @@ Explanation: The answer is "abc", with the length of 3.
 
 
 <br>
+
 --------------------------------
+
 ## 理解：
 1. 首先不能用brute force来做，会超时
 2. 滑动窗口解法：
