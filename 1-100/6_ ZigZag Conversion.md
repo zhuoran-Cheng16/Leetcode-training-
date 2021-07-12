@@ -1,7 +1,7 @@
 # [6. ZigZag Conversion（medium](https://leetcode-cn.com/problems/zigzag-conversion/)
 ## 题目：
  
- ![name](img/6.png)
+![name](img/6.png)
 
 
 - Constraints:
