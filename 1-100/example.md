@@ -1,13 +1,7 @@
 # []()
 ## 题目：
 
-* 示例:
-<br>
-<br>
-
-<br>
-<br>
-
+![timu](img/)
 * Constraints:
 <br>
 <br>
