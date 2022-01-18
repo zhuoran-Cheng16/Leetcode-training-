@@ -1,0 +1,94 @@
+# [72. Edit Distance (hard)](https://leetcode-cn.com/problems/edit-distance/)
+## 题目：
+
+![](img/72-1.png)
+
+* Constraints:
+* 0 <= word1.length, word2.length <= 500
+* word1 and word2 consist of lowercase English letters.
+<br>
+<br>
+
+--------------------------------
+## 理解：
+- 解法1:
+  - 动态规划：
+    - 三种操作：
+      - 插入字符
+      - 删除字符
+      - 替换字符
+    - 等价：
+      - A删除=B插入
+      - B删除=A插入
+      - A替换=B替换
+    - 实际操作：
+      - A插入
+      - B插入
+      - 修改A
+        - 在末尾插入或修改字符（操作顺序不影响最终结果）
+    - 动态规划：
+      - 用dp[i][j]表示A的前i个字母和B的前j个字母的距离
+        ![](img/72-2.png)
+      - 获得dp[i][j-1],dp[i-1][j] and dp[i-1][j-1]的值后就可计算出dp[i][j]
+        - 若A和B最后一个字母相同：
+          - dp[i[j]=min(dp[i][j-1]+1,dp[i-1][j]+1,dp[i-1][j-1])
+            - =1+min(dp[i][j-1],dp[i-1][j],dp[i-1][j-1]-1)
+        - 若不同
+          - dp[i[j]=1+min(dp[i][j-1],dp[i-1][j],dp[i-1][j-1])
+         ![](img/72-3.png)
+        - 对于边界情况，一个空串和一个非空串的编辑距离为 dp[i][0] = i 和 dp[0][j] = j，dp[i][0] 相当于对 word1 执行 i 次删除操作，dp[0][j] 相当于对 word1执行 j 次插入操作。
+
+
+
+<br>
+<br>
+
+
+--------------------------------
+## Code
+
+
+```python
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        n=len(word1)
+        m=len(word2)
+
+        #check if m/n=0
+        if m*n==0:
+            return m+n
+        
+        #set dp
+        dp=[[0]*(m+1) for _ in range(n+1)]
+
+        #initial boundary
+        for i in range(m+1):
+            dp[0][i]=i
+        for j in range(n+1):
+            dp[j][0]=j
+        
+        for i in range(1,n+1):
+            for j in range(1,m+1):
+                left=dp[i][j-1]+1
+                down=dp[i-1][j]+1
+                l_d=dp[i-1][j-1]
+                if word1[i-1] != word2[j-1]:
+                    l_d+=1
+                dp[i][j]=min(left,down,l_d)
+        return dp[n][m]
+
+```
+- Time Complexity: 
+- Space Complexity: 
+<br>
+<br>
+
+```python
+
+
+```
+- Time Complexity: 
+- Space Complexity: 
+  
+--------------------------------
+## 扩展
